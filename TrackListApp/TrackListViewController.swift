@@ -13,7 +13,7 @@ class TrackListViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        tableView.rowHeight = 80
     }
 }
 
@@ -30,6 +30,8 @@ extension TrackListViewController {
         let track = trackList[indexPath.row]
         content.text = track.song
         content.secondaryText = track.artist
+        content.image = UIImage(named: track.title)
+        content.imageProperties.cornerRadius = tableView.rowHeight / 2
         cell.contentConfiguration = content
         
         return cell
